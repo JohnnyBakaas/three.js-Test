@@ -58,11 +58,8 @@ const visualizeArray = () => {
 
     let material;
 
-    if (iteration % arrayLength == i / arrayLength) {
-      material = new THREE.MeshBasicMaterial({ color: 0xffffff });
-    } else {
-      material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    }
+    material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+
     const cube = new THREE.Mesh(geometry, material);
     cube.translateY(i * 1.5);
     colection.push(cube);
@@ -143,6 +140,9 @@ const loop = () => {
   geometry.forEach((e) => {
     scene.add(e);
   });
+
+  console.log(scene.children.length);
+  console.log(geometry.length);
 
   // HOLD PÅ BUNN
   renderer.render(scene, camerea);
